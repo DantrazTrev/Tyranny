@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+@media (max-width:900px)  {
+  body {
+    background-image: url("/butt.gif");
+   background-size: fill;
+   background-repeat: no-repeat;
+   background-position: center;
+      height: 100vh;
+    padding:0;
+    margin:0;
+    
+    background-color: #000000;
+  }
+  body::before{
+     content: " Sorry Le Papillion is not yet available on smaller screens";
+     font-family: Helvetica;
+     font-weight: 80;
+     font-size: 1em;
+     color:rgb(255, 255, 255);
+     position: absolute;
+     top:73%;
+     text-align: center;
+        
+  }
+  body::after{
+    content: "Le Papillion";
+    font-family: Helvetica;
+    letter-spacing:0.6em;
+     
+  }
+  .App{
+    display: none;
+  }
+}
