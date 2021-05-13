@@ -8,12 +8,17 @@ export default class App extends React.Component  {
     super(props);
     this.state = {
       start : true,
+      name:""
 
     };
        
   }
   
+penolope=(e)=>{
+this.setState({name: e.target.value});
 
+
+}
 sutrat=()=> {
   this.setState({start:false});
   console.log("Distra");
@@ -21,7 +26,7 @@ sutrat=()=> {
 susrat=<Star sutrat={this.sutrat}/> ;
 render(){
   if(!this.state.start){
-   this.susrat=<Dez/>;}
+   this.susrat=<Dez pen={this.penolope}/>;}
    else if(this.state.start)
    this.susrat=<Star sutrat={this.sutrat}/>
   
