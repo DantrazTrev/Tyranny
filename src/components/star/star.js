@@ -12,7 +12,10 @@ export default class Star extends React.Component {
 }
 
 
+componentWillMount(){
+  
 
+}
 
   componentDidMount(){
     axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`)

@@ -62,16 +62,23 @@ input{
   font-family: Monospace;
   font-size:1em;
   padding: 5px;
-  border-color:white;
+  border-color:rgba(255, 255, 255, 0.733);
   
 }
+.ter{
+  position: absolute;
+  top: 54%;  
+    left:50% ;
+
+}
+
 form{
   display: inline;
 }
 /* Animation */
 .anim-typewriter{
-  animation: typewriter 4s steps(23) 1s 1 normal both,
-             blinkTextCursor 500ms steps(23) infinite normal;
+  animation: typewriter 3s steps(23) 1s 1 normal both,
+             blinkTextCursor 500ms steps(23)  normal;
 }
 @keyframes typewriter{
   from{width: 0;}
