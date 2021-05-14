@@ -11,9 +11,10 @@ export default class Charchi extends React.Component {
     choice:[],
     currchoice:"",
     currchar:"",
-    start:""
-    
+    start:"",
+    preferences:[]
   }
+  this.por=this.por.bind(this)
  
 }
   
@@ -46,13 +47,21 @@ addchar=(e)=>{
 addchoi=(e)=>{
   e.preventDefault();
   const list = [...this.state.choice, this.state.currchoice];
-  this.setState({choice:list,currchoice:""})
+  const pref=[...this.state.preferences,0]
+  this.setState({choice:list,currchoice:"",preferences:pref})
 
+}
+
+por(e){
+  console.log(e.target.id)
+  let pref=[...this.state.preferences]
+  pref[parseInt(e.target.id)]=parseFloat(e.target.value);
+  this.setState({preferences:pref});
 }
 
   render() {
      
-    
+    let pref=[...this.state.preferences]
     return (<div class="cahr">
             {this.state.start}
           <div class="charli"><p className="title">Charecters</p>
@@ -83,11 +92,11 @@ addchoi=(e)=>{
               </form>
               <ul>
                 {this.state.choice.map((char, index) => (
-                    <Li
+                  <div class="hoice">  <Ctoth
                         key={index}
-                        id={index}
+                        
                         item={char}
-                    />
+                    /> <input type="range" id={index}  min="0" max="1" step="0.01" value={pref[index]}class="slider" onChange={this.por}/></div>
                 ))}
             </ul></div>
           <button class="add" onClick={(e)=>{this.go(e);this.props.config(this.state.char,this.state.choice)}}>Config</button>
@@ -108,3 +117,16 @@ function Li({ id, item, onCheck }) {
         </>
     )
 }
+
+function Ctoth({ id, item, onCheck }) {
+    return (
+        <>
+        <li
+            onClick={() => {onCheck(id)}}
+        >
+            {item}  
+        </li>
+        </>
+    )
+}
+

@@ -1,8 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import './dez.css'
 
-export default class Dez extends React.Component {
+export default class Game extends React.Component {
 
   constructor(props) {
   super(props);
