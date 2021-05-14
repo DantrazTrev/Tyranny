@@ -23,11 +23,19 @@ go=(e)=>{
   console.log("tmyk")
   console.log(this.state.char,this.state.choice)  
 
-   axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name,{charecters:this.state.char,choices:this.state.choice,levels:''})
+    axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name,{charecters:this.state.char,choices:this.state.choice,levels:''})
       .then(res => {
                console.log(res);
                 this.setState({start:<div class="start"><div class="start-con" onClick={this.props.game} >{res.data.status} at the alpha server</div></div>})
+
+axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/playconfig',{choices:this.state.preferences,confidence:0.8})
+      .then(resi => {
+               console.log(resi);
+                this.setState({start:<div class="start"><div class="start-con" onClick={this.props.game} >{resi.data.status} at the alpha server</div></div>})
                      })
+
+                     })
+     
 
 }
 
@@ -47,7 +55,7 @@ addchar=(e)=>{
 addchoi=(e)=>{
   e.preventDefault();
   const list = [...this.state.choice, this.state.currchoice];
-  const pref=[...this.state.preferences,0]
+  const pref=[...this.state.preferences,[0]]
   this.setState({choice:list,currchoice:"",preferences:pref})
 
 }
@@ -55,7 +63,7 @@ addchoi=(e)=>{
 por(e){
   console.log(e.target.id)
   let pref=[...this.state.preferences]
-  pref[parseInt(e.target.id)]=parseFloat(e.target.value);
+  pref[parseInt(e.target.id)][0]=parseFloat(e.target.value);
   this.setState({preferences:pref});
 }
 
@@ -96,7 +104,7 @@ por(e){
                         key={index}
                         
                         item={char}
-                    /> <input type="range" id={index}  min="0" max="1" step="0.01" value={pref[index]}class="slider" onChange={this.por}/></div>
+                    /> <input type="range" id={index}  min="0" max="1" step="0.01" value={pref[index][0]}class="slider" onChange={this.por}/></div>
                 ))}
             </ul></div>
           <button class="add" onClick={(e)=>{this.go(e);this.props.config(this.state.char,this.state.choice)}}>Config</button>
