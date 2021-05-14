@@ -11,6 +11,7 @@ export default class Charchi extends React.Component {
     choice:[],
     currchoice:"",
     currchar:"",
+    start:""
     
   }
  
@@ -24,6 +25,7 @@ go=(e)=>{
    axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name,{charecters:this.state.char,choices:this.state.choice,levels:''})
       .then(res => {
                console.log(res);
+                this.setState({start:<div class="start"><div class="start-con" onClick={this.props.game} >{res.data.status} at the alpha server</div></div>})
                      })
 
 }
@@ -52,6 +54,7 @@ addchoi=(e)=>{
      
     
     return (<div class="cahr">
+            {this.state.start}
           <div class="charli"><p className="title">Charecters</p>
              <form onSubmit={this.addchar}>  <input
                   type="text"
@@ -87,7 +90,7 @@ addchoi=(e)=>{
                     />
                 ))}
             </ul></div>
-          <button class="add" onClick={this.go}>Config</button>
+          <button class="add" onClick={(e)=>{this.go(e);this.props.config(this.state.char,this.state.choice)}}>Config</button>
     </div>
     )
   }

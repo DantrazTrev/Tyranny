@@ -22,6 +22,15 @@ penolope=(e)=>{
 this.setState({name: e.target.value});
 
 }
+jet3=(a,b)=>{
+this.setState({char: a,choice:b});
+
+}
+
+muchahcah=()=>{
+ this.setState({start:"game"})  
+}
+
 chica=(e)=>{
   this.setState({start:"char"})
 }
@@ -37,7 +46,10 @@ render(){
   else if(this.state.start==="user"){
    this.susrat=<Dez pen={this.penolope} chars={this.chica}/>;}
    else if(this.state.start==="char"){
-   this.susrat=<Charchi name={this.state.name} chars={this.chica}/>;}
+   this.susrat=<Charchi name={this.state.name} config={this.jet3} game={this.muchahcah}/>;}
+   else if(this.state.start==="game"){
+  //game render
+   }
    
   
   
