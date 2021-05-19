@@ -5,104 +5,84 @@ export default class Game extends React.Component {
 
   constructor(props) {
   super(props);
+  this.state={
+    status:null,
+    me:'',
+  }
 
-  this.tethy=this.tethy.bind(this);
-
-  this.go=this.go.bind(this);
 }
-  
-go(e){
+
+ 
+
+
+upday=(e)=>{
   e.preventDefault();
   console.log("tmyk")
 
-   axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`,{name:this.state.name,complexity:2})
+   axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/upday')
       .then(res => {
                console.log(res);
-              this.setState({start:<div class="start"><div class="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
                      })
  
 
 }
-upday(e){
+fight=(e)=>{
   e.preventDefault();
   console.log("tmyk")
 
-   axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/upday/')
+   axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/fight')
       .then(res => {
                console.log(res);
-              this.setState({start:<div class="start"><div class="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
                      })
  
 
 }
-fight(e){
+day=(e)=>{
   e.preventDefault();
   console.log("tmyk")
 
-   axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/fight/')
+   axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/day')
       .then(res => {
                console.log(res);
-              this.setState({start:<div class="start"><div class="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
                      })
  
 
 }
-day(e){
+me=(e)=>{
   e.preventDefault();
   console.log("tmyk")
 
-   axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/day/')
+   axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/me')
       .then(res => {
                console.log(res);
-              this.setState({start:<div class="start"><div class="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
                      })
  
 
 }
-me(e){
-  e.preventDefault();
-  console.log("tmyk")
-
-   axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/me/')
-      .then(res => {
-               console.log(res);
-              this.setState({start:<div class="start"><div class="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
-                     })
- 
-
-}
-kar(e){
+kar=(e)=>{
   e.preventDefault();
   console.log("tmyk")
 
    axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/kar/'+e.target.value)
       .then(res => {
                console.log(res);
-              this.setState({start:<div class="start"><div class="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
                      })
  
 
 }
-undi(e){
+undi=(e)=>{
   e.preventDefault();
   console.log("tmyk")
 
    axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/undi/'+e.target.value)
       .then(res => {
                console.log(res);
-              this.setState({start:<div class="start"><div class="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
-                     })
- 
-
-}
-undi(e){
-  e.preventDefault();
-  console.log("tmyk")
-
-   axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/undi/'+e.target.value)
-      .then(res => {
-               console.log(res);
-              this.setState({start:<div class="start"><div class="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
                      })
  
 
@@ -114,7 +94,19 @@ di(e){
    axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/di/'+e.target.value)
       .then(res => {
                console.log(res);
-              this.setState({start:<div class="start"><div class="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+                     })
+ 
+
+}
+die(e){
+  e.preventDefault();
+  console.log("tmyk")
+
+   axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/di/'+e.target.value)
+      .then(res => {
+               console.log(res);
+              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
                      })
  
 
@@ -123,10 +115,10 @@ trusty(e){
   e.preventDefault();
   console.log("tmyk")
 
-   axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/trusty/'+e.target.value,{trust:ver})
+   axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/trusty/'+e.target.value,{trust:1})
       .then(res => {
                console.log(res);
-              this.setState({start:<div class="start"><div class="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
                      })
  
 
@@ -138,7 +130,7 @@ rewind(e){
    axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/rewind/',{day:e.target.value})
       .then(res => {
                console.log(res);
-              this.setState({start:<div class="start"><div class="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
                      })
  
 
@@ -147,10 +139,10 @@ disc(e){
   e.preventDefault();
   console.log("tmyk")
 
-   axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.anme+'/disc/',{name:e.target.value})
+   axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/disc/',{name:e.target.value})
       .then(res => {
                console.log(res);
-              this.setState({start:<div class="start"><div class="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
                      })
  
 
@@ -159,22 +151,21 @@ inf(e){
   e.preventDefault();
   console.log("tmyk")
 
-  axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.anme+'/inf/',{name:e.target.value})
+  axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/inf/',{name:e.target.value})
       .then(res => {
                console.log(res);
-              this.setState({start:<div class="start"><div class="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
                      })
  
 
 }
-tethy(e){
-this.setState({name: e.target.value});
-
-}
-covere =(e)=>{
-  this.setState({comple: e.target.value});
-}
-
+ componentDidMount(){
+ axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/me')
+      .then(res => {
+               console.log(res);
+              this.setState({me:<div className="Me"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+                     })
+  }
 
   
 
@@ -185,20 +176,10 @@ covere =(e)=>{
       }
     
     return (
-      <div class="Dez">
-      <div class="butt">The Butterfly</div>
-       {this.state.start}
-     
-    
-        <form onSubmit={this.go}><p class="line-1 anim-typewriter">What should we call you? <input type="text"  placeholder="Dantra" value={this.state.name}  onChange={(e)=>{this.props.pen(e);this.tethy(e)}}/></p>  
-        {/*<span class="ter">Complexity <input class="typeinp"  type="range" 
-      min="0" max="5" 
-      value={this.state.comple} 
-      onChange={this.covere}
-      step="1"/></span>*/}
-       
-</form>
-      
+      <div className="Game"> 
+      {this.state.me}
+        {this.state.status}
+        <button onClick={this.upday}>Upday</button>
       
       </div>
     )

@@ -3,6 +3,7 @@ import './App.css';
 import Star from './components/star/star.js';
 import Dez from './components/dez/dez.js';
 import Charchi from './components/dez/char/char.js';
+import Game from './components/game/game.js';
 
 
 export default class App extends React.Component  {
@@ -48,8 +49,8 @@ render(){
    else if(this.state.start==="char"){
    this.susrat=<Charchi name={this.state.name} config={this.jet3} game={this.muchahcah}/>;}
    else if(this.state.start==="game"){
-  //game render
-   }
+this.susrat=<Game name={this.state.name} />;}
+   
    
   
   
