@@ -4,7 +4,7 @@ import Star from './components/star/star.js';
 import Dez from './components/dez/dez.js';
 import Charchi from './components/dez/char/char.js';
 import Game from './components/game/game.js';
-
+import axios from 'axios'
 
 export default class App extends React.Component  {
   constructor(props){
@@ -40,10 +40,23 @@ sutrat=()=> {
   this.setState({start:"user"});
   console.log("Distra");
   }
+
+bye = (e)=>{
+if(this.state.name!==""){
+  axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.state.name+'/quit')
+      .then(res => {
+               console.log(res);
+              })}
+}
+
+componentDidMount(){
+   window.addEventListener('beforeunload', this.bye);
+}
+
 susrat=<Star sutrat={this.sutrat}/> ;
 render(){
-   if(this.state.start==="start")
-   this.susrat=<Star sutrat={this.sutrat}/>
+   if(this.state.start==="start"){
+   this.susrat=<Star sutrat={this.sutrat}/>}
   else if(this.state.start==="user"){
    this.susrat=<Dez pen={this.penolope} chars={this.chica}/>;}
    else if(this.state.start==="char"){
