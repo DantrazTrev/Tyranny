@@ -28,6 +28,8 @@ go=(e)=>{
                console.log(res);
                 this.setState({start:<div className="start"><div className="start-con" onClick={this.props.game} >{res.data.status} at the alpha server</div></div>})
 
+  const pref=this.state.preferences.map(p=>{return p})
+  console.log(pref)
 axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/playconfig',{choices:this.state.preferences,confidence:0.8})
       .then(resi => {
                console.log(resi);
@@ -61,7 +63,6 @@ addchoi=(e)=>{
 }
 
 por(e){
- console.log(this.state.prefrences)  
   let pref=[...this.state.preferences]
   pref[parseInt(e.target.id)][0]=parseFloat(e.target.value);
   this.setState({preferences:pref});
@@ -104,7 +105,7 @@ por(e){
                         key={index}
                         
                         item={char}
-                    /> <input type="range" id={index}  min="0" max="1" step="0.01" value={pref[index][0]}className="slider" onChange={this.por}/></div>
+                    /> <input type="range" id={index}  min="0" max="1" step="0.1" value={pref[index][0]}className="slider" onChange={this.por}/></div>
                 ))}
             </ul></div>
           <button className="add" onClick={(e)=>{this.go(e);this.props.config(this.state.char,this.state.choice)}}>Config</button>

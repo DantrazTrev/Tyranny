@@ -22,7 +22,8 @@ upday=(e)=>{
    axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/upday')
       .then(res => {
                console.log(res);
-              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+                 this.me();
+                
                      })
  
 
@@ -34,7 +35,7 @@ fight=(e)=>{
    axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/fight')
       .then(res => {
                console.log(res);
-              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+                
                      })
  
 
@@ -46,20 +47,18 @@ day=(e)=>{
    axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/day')
       .then(res => {
                console.log(res);
-              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+                
                      })
  
 
 }
 me=(e)=>{
-  e.preventDefault();
-  console.log("tmyk")
-
-   axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/me')
+  axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/me')
       .then(res => {
-               console.log(res);
-              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
-                     })
+        console.log(res.data.Playerop)
+             const statli=Object.keys(res.data.Playerop).map((ker,i)=>{return(<div className="stat" id={i} >{ker}:{res.data.Playerop[ker]}</div>)})
+               this.setState({me:<div className="stats">{statli}</div>})
+                    })
  
 
 }
@@ -70,7 +69,7 @@ kar=(e)=>{
    axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/kar/'+e.target.value)
       .then(res => {
                console.log(res);
-              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+                
                      })
  
 
@@ -82,7 +81,7 @@ undi=(e)=>{
    axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/undi/'+e.target.value)
       .then(res => {
                console.log(res);
-              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+                
                      })
  
 
@@ -94,7 +93,7 @@ di(e){
    axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/di/'+e.target.value)
       .then(res => {
                console.log(res);
-              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+                
                      })
  
 
@@ -106,7 +105,7 @@ die(e){
    axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/di/'+e.target.value)
       .then(res => {
                console.log(res);
-              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+                
                      })
  
 
@@ -118,7 +117,7 @@ trusty(e){
    axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/trusty/'+e.target.value,{trust:1})
       .then(res => {
                console.log(res);
-              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+                
                      })
  
 
@@ -130,7 +129,7 @@ rewind(e){
    axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/rewind/',{day:e.target.value})
       .then(res => {
                console.log(res);
-              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+                
                      })
  
 
@@ -142,7 +141,7 @@ disc(e){
    axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/disc/',{name:e.target.value})
       .then(res => {
                console.log(res);
-              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+                
                      })
  
 
@@ -154,7 +153,7 @@ inf(e){
   axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/inf/',{name:e.target.value})
       .then(res => {
                console.log(res);
-              this.setState({start:<div className="start"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
+                
                      })
  
 
@@ -162,14 +161,16 @@ inf(e){
  componentDidMount(){
  axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/me')
       .then(res => {
-               console.log(res);
-              this.setState({me:<div className="Me"><div className="start-con" onClick={this.props.chars}>{res.data.status} at the alpha server</div></div>})
-                     })
+        console.log(res.data.Playerop)
+             const statli=Object.keys(res.data.Playerop).map((ker,i)=>{return(<div className="stat" id={i} >{ker}:{res.data.Playerop[ker]}</div>)})
+               this.setState({me:<div className="stats">{statli}</div>})
+                    })
   }
 
   
 
   render() {
+    const buttonli={}
       if(this.state.name !=="")
       {
         
@@ -179,8 +180,12 @@ inf(e){
       <div className="Game"> 
       {this.state.me}
         {this.state.status}
+        <div className="Buttonclass">
         <button onClick={this.upday}>Upday</button>
-      
+         <button onClick={this.di}>Distance</button>
+          <button onClick={this.undi}>Undistance</button>
+           <button onClick={this.rewind}>Rewind</button>
+           </div>
       </div>
     )
   }
