@@ -44,7 +44,9 @@ button:active::before{
     width: 150%;  height: 200%;
     opacity: 0;
 }
-
+button:disabled{
+    text-decoration:line-through;
+}
 @keyframes animate{
     0%{
         width: 100%;  height: 100%;  
