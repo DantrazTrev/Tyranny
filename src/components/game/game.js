@@ -9,6 +9,8 @@ export default class Game extends React.Component {
     status:null,
     me:null,
     day:0,
+    kar:"amrii",
+    dst:null,//For Day state
   }
 
 }
@@ -76,7 +78,8 @@ kar=(e)=>{
 
    axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/kar/'+e.target.value)
       .then(res => {
-               console.log(res);
+         console.log(res.data)
+           
                 
                      })
  
@@ -173,10 +176,47 @@ inf(e){
             const statli=Object.keys(res.data.Playerop).map((ker,i)=>
             {return( <div class="expenses__box"><span class="expenses__title">{ker}</span><span class="expenses__amount">{ parseFloat(res.data.Playerop[ker]*100).toFixed(2)+"%"}</span></div>)})
         this.setState({me:statli})  
-        this.day()                 
-})
-  }
 
+        
+      })
+      const karli=this.props.chars.map((ker,i)=>
+        {return(  
+        <div class="celf">
+          <div class="cellimg"><img src="https://www.zupimages.net/up/19/09/bv2e.jpg" /></div>
+          <div class="cellid" onClick={this.inter} id={ker}>{ker}<div><a href="#"><i class="fas fa-phone" onClick={this.disc}></i>  
+        <i class="fas fa-comment-dots" onClick={this.inf}></i></a></div>
+        
+  
+          </div>
+        
+
+        
+        
+  
+      </div>)})
+
+        this.setState({kar:karli})
+        this.day()                 
+    
+
+  }
+inter=(e)=>{
+e.preventDefault();
+this.setState({action:
+<div class="contact">
+<img class="conim" src="https://www.zupimages.net/up/19/09/bv2e.jpg"/>
+<h3 class="cotname">Johnathan </h3>
+<span class="conin"> <i class="fas fa-info"></i>Prefers: Toast <br/>  Acceptance:50% </span>
+
+<div class="action">
+
+<div></div>
+
+
+</div>})
+</div>
+
+})}
   
 
   render() {
@@ -249,6 +289,7 @@ inf(e){
           <path d="M71.404,156.771c3.832,0,7.727-0.683,11.515-2.124c8.114-3.085,14.542-9.146,18.097-17.065s3.815-16.75,0.729-24.864   L74.201,40.279l60.756-23.103l17.82,46.862c-5.879-1.236-12.163-0.87-18.183,1.419c-16.75,6.37-25.195,25.179-18.826,41.93   c4.929,12.961,17.306,20.95,30.414,20.95c3.832,0,7.727-0.683,11.515-2.124c8.114-3.085,14.542-9.146,18.097-17.065   s3.815-16.75,0.729-24.864l-30.211-79.45c-0.707-1.859-2.124-3.362-3.938-4.176s-3.879-0.875-5.738-0.168L61.859,28.924   c-3.872,1.472-5.817,5.804-4.345,9.676L78,92.472c-5.879-1.236-12.163-0.869-18.183,1.419c-16.75,6.37-25.195,25.179-18.826,41.93   C45.919,148.782,58.296,156.771,71.404,156.771z M162.109,103.004c-1.915,4.264-5.375,7.528-9.745,9.189   c-9.021,3.428-19.147-1.118-22.578-10.137c-3.429-9.02,1.118-19.148,10.137-22.578c2.041-0.776,4.137-1.144,6.201-1.144   c7.058,0,13.723,4.302,16.377,11.281C164.163,93.985,164.024,98.739,162.109,103.004z M65.148,107.912   c2.041-0.776,4.137-1.144,6.201-1.144c7.058,0,13.723,4.302,16.377,11.281c1.661,4.37,1.522,9.124-0.393,13.389   c-1.915,4.264-5.375,7.528-9.745,9.189c-9.021,3.429-19.147-1.118-22.578-10.137C51.582,121.47,56.129,111.342,65.148,107.912z"></path>
         </svg>
       </div>
+     
    
       <div class="next" onClick={this.upday}> Next Day</div>
     </div>
@@ -257,17 +298,39 @@ inf(e){
 
  
 
+{/*Phone Starts here*/}
 
+<div class="lgcell">
+  <div class="cellbg">
+    <div class="celltop">
+        <div style={{float:"left"}}><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-wifi"></i></div>17:09<div style={{float:"right"}}><i class="fas fa-battery-three-quarters"></i></div>
+    </div>
+    <div class="cellheader">
+      <div style={{float:"left"}}> Edit</div>Contacts <div style={{float:"right"}}><i class="fas fa-plus"></i></div>
+    </div>
+    <div class="cellcont">
+      <div class="celf">
+        <div class="cellimg"><img src="https://www.zupimages.net/up/19/09/bv2e.jpg" /></div>
+        <div class="cellid" onClick={this.inter} id="Preno">Prénom Nom<div><a href="#"><i class="fas fa-phone" onClick={this.disc}></i>  
+      <i class="fas fa-comment-dots" onClick={this.inf}></i></a></div>
+      
 
+        </div>
+      
+      </div>
+      
+      {this.state.kar}
 
-
-
-
-
-
-
-
-
+    </div>
+    
+    <div class="cellback">
+      <div class="cellhead"><i class="fas fa-signal"></i><i class="fas fa-wifi"></i>
+        <div style={{float:"right"}}>86%<i class="fas fa-battery-three-quarters"></i></div>
+      </div>
+      <div class="cellhour">15:08<span>mardi 26 mars</span></div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -276,14 +339,12 @@ inf(e){
 
 
       
-     {/* {this.state.me}
-        {this.state.status}
+
         <div className="Buttonclass">
-        <button onClick={this.upday}>Upday</button>
          <button onClick={this.di}>Distance</button>
           <button onClick={this.undi}>Undistance</button>
            <button onClick={this.rewind}>Rewind</button>
-    </div>*/}
+    </div>
       </div>
     )
   }

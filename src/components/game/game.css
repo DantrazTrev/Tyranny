@@ -1,16 +1,11 @@
 
-      * {
-        box-sizing: border-box;
-      }
       
       body {
-        background: #222;
+        background: rgb(0, 0, 0);
         font-family: "Gochi Hand","Helvetica";
         color: #333;
       }
       
-      /*       
-
 
   .Buttonclass
     {display: flex;
@@ -32,7 +27,7 @@
     letter-spacing: 7px;
     transition: .9s;
   
-    } */
+    } 
 
 
     /*Notebook Design*/
@@ -50,16 +45,17 @@
       .main-content {
         margin: 5em auto;
       }
-      
       .notebook {
         max-width: 800px;
         min-width: 550px;
         min-height: 570px;
         margin: auto;
+     
         border-radius: 16px;
         background: #cc4b48;
         padding: 2px 4px 2.5px;
         text-align: left;
+        transform: scale(1.2);
       }
       .notebook__inner {
         width: 100%;
@@ -386,3 +382,187 @@
           }
       }
       */
+
+
+      /* Cell Design */
+      .lgcell {
+        display: block;
+        background-image: url(https://www.zupimages.net/up/19/13/o092.png);
+        width: 300px;
+        height: 500px;
+        background-size: cover;
+        margin: auto;
+        position: fixed;
+        right:5%;
+        top:11%;
+        transform: scale(1.1);
+        margin-left:11px;
+
+      }
+      .cellback {
+        background-image: url(https://i.pinimg.com/originals/15/bc/04/15bc04bfc0f824358e48de5a6dc2238d.jpg);
+        background-position: center;
+        background-size: cover;
+        height: 356px;
+        width: 202px;
+        border-radius: 3px;
+        z-index: 99;
+        -webkit-transition: all 0.4s ease-out;
+        transition: all 0.4s ease-out;
+        position: absolute;
+        top: 0;
+        pointer-events: none;
+      }
+      .cellbg:hover .cellback {
+        transform: scale(1.5);
+        opacity: 0;
+        -webkit-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out;
+      }
+      .cellbg {
+        height: 356px;
+        width: 202px;
+        background: #fff;
+        margin: 49px;
+        margin-top: 77px;
+        position: absolute;
+        border-radius: 3px;
+        overflow: hidden;
+      }
+      .cellhead {
+        font-family: Raleway;
+        font-weight: 600;
+        color: #fff;
+        text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+        font-size: 12px;
+        padding: 5px;
+        padding-right: 10px;
+      }
+      .cellhead i {
+        margin-left: 5px;
+      }
+      .cellhour {
+        height: 70%;
+        text-align: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        font-family: Roboto;
+        color: #fff;
+        text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+        font-size: 50px;
+      }
+      .cellhour span {
+        font-size: 12px;
+        font-family: Quicksand;
+        display: block;
+        margin-top: -160px;
+      }
+      .celltop {
+        padding: 5px;
+        text-align: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+        font-family: Raleway;
+        font-weight: 800;
+      }
+      .celltop div:first-child {
+        margin-right: -30px;
+      }
+      .celltop i {
+        font-size: 5px;
+        margin-right: 1px;
+      }
+      .celltop i:last-child {
+        font-size: 9px;
+        margin-left: 4px;
+      }
+      .cellheader {
+        background: #fff;
+        padding: 5px;
+        line-height: 30px;
+        border-bottom: 1px solid #ececec;
+        text-align: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        font-family: Raleway;
+        font-weight: 700;
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+      .cellheader div {
+        color: #f1604b;
+        font-weight: 600;
+        cursor: crosshair;
+      }
+      .cellheader div:first-child {
+        margin-right: -15px;
+      }
+      .cellcont {
+        height: 305px;
+        overflow: auto;
+      }
+      .cellcont::-webkit-scrollbar {
+        width: 5px;
+      }
+      .cellcont::-webkit-scrollbar-track {
+        background: #f9f9f9;
+      }
+      .cellcont::-webkit-scrollbar-thumb {
+        background: #d2d2d2;
+        border-radius: 5px;
+      }
+      .celf {
+        display: flex;
+        background: #fff;
+      }
+      .cellimg img {
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        margin-top: 5px;
+        margin-left: 10px;
+      }
+      .cellid {
+        border-bottom: 1px solid #d2d2d2;
+        width: 100%;
+        margin: 7px;
+        margin-bottom: 4px;
+        padding-top: 10px;
+        margin-right: 3px;
+        font-family: Roboto;
+        font-size: 12px;
+        font-weight: 600;
+        color: #363636;
+        text-align: left;
+      }
+   
+      .cellid div {
+        float: right;
+        margin-top: -3px;
+      }
+     .fa-info:hover .cellstatus{
+          
+      }
+      .cellstatus{
+        display:list-item;
+       
+          font-weight: 700;
+          font-size: 0.7em;
+      }
+      .cellid i {
+        background: #fff;
+        font-size: 8px;
+        padding: 4px 4px;
+        border-radius: 100%;
+        color: #f1604b;
+        border: 1px solid #f1604b;
+        margin-right: 2px;
+        display: inline-block;
+      }
+      
