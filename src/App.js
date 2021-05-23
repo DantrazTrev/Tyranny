@@ -62,7 +62,7 @@ render(){
    else if(this.state.start==="char"){
    this.susrat=<Charchi name={this.state.name} config={this.jet3} game={this.muchahcah}/>;}
    else if(this.state.start==="game"){
-this.susrat=<Game name={this.state.name} />;}
+this.susrat=<Game chars={this.state.char} choi={this.state.choice} name={this.state.name} />;}
    
    
   

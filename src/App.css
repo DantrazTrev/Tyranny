@@ -25,6 +25,17 @@
   
 }
 
+.cahr{
+  position: relative;
+  height: 100%;
+   background-color: black;
+  min-height: 100vh;
+  font-family: Roboto;
+  color:white;
+  font-weight: 369;
+  
+  
+}
 .App-link {
   color: #61dafb;
 }
@@ -37,3 +48,6 @@
     transform: rotate(360deg);
   }
 }
+
+
+
