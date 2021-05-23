@@ -1,8 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+*:focus {
+  outline: 0;
+}
 
 body{
-  background-color:black; 
-  font-family: 'Anonymous Pro', monospace;
+  background-color: rgb(0, 0, 0); 
+  font-family: Roboto;
   font-weight: 10;
 }
 .cahr{
@@ -41,16 +43,119 @@ body{
     color: white;
     background-color: black;
 }
-input{
+.cahr input{
   background-color: black;
   color: white;
   font-family: Monospace;
   font-size:1em;
-  padding: 5px;
+  padding: 1em;
+  height: 6em;
+  width: 8em;
+  text-align: center;
   border-color:rgba(255, 255, 255, 0.733);
-  
+  border-radius: 100%;
+}
+.cahr input[type="text"]:focus{
+  background-color: rgb(255, 255, 255);
+  color: rgb(55, 55, 55);  
 }
 
 form{
   display: inline;
 }
+.charli, .choli{
+  display: flex;
+  flex-direction: column;
+  
+}
+.charli ul li{
+  list-style: none;
+  /* text-align: center; */
+  /* display: block; */
+  border: 0.4px solid white;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  color: rgb(55, 55, 55);
+  padding: 2em;
+  animation: fadeIn linear 3s;
+  margin:1em;
+
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  position: relative
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 300px;
+  height: 2px;
+  border: none;
+  border-radius: 3px;
+  background-color: white;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 510%;
+  background: #030ad0;
+  border: 2px solid #515151;
+  margin-top: -5px;
+  cursor: pointer;
+}
+
+.focused::-webkit-slider-thumb {
+  box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.15)
+}
+
+.choli ul li{
+  list-style: none;
+  /* text-align: center; */
+  /* display: block; */
+  border: 0.4px solid white;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  color: rgb(55, 55, 55);
+  padding: 2em;
+  width: 100%;
+  margin-bottom: 1em;
+ 
+
+
+
+ }
+ .hoice{
+   display: flex;
+   justify-content:flex-end;
+   flex-direction: row;
+  animation: fadeIn linear 3s;  
+ }
+ 
+ @keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+ 

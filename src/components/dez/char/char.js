@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import './char.css'
+import './char.css';
 
 export default class Charchi extends React.Component {
 
@@ -77,6 +77,7 @@ por(e){
              <form onSubmit={this.addchar}>  <input
                   type="text"
                   value={this.state.currchar}
+                  placeholder="+" 
                   onChange={(event) => {this.chari(event.target.value)}}
               />
              </form>
@@ -96,6 +97,7 @@ por(e){
             <form onSubmit={this.addchoi}>  <input
                   type="text"
                   value={this.state.currchoice}
+                  placeholder="+" 
                   onChange={(event) => {this.choic(event.target.value)}}
               />
               </form>
@@ -105,7 +107,7 @@ por(e){
                         key={index}
                         
                         item={char}
-                    /> <input type="range" id={index}  min="0" max="1" step="0.1" value={pref[index][0]}className="slider" onChange={this.por}/></div>
+                    /><input type="range" className="pref" id={index}  min="0" max="1" step="0.1" value={pref[index][0]}className="slider" onChange={this.por}/></div>
                 ))}
             </ul></div>
           <button className="add" onClick={(e)=>{this.go(e);this.props.config(this.state.char,this.state.choice)}}>Config</button>
@@ -119,7 +121,7 @@ function Li({ id, item, onCheck }) {
     return (
         <>
         <li
-            onClick={() => {onCheck(id)}}
+            // onClick={() => {onCheck(id)}}
         >
             {item}  
         </li>
