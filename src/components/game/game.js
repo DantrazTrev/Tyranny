@@ -10,7 +10,7 @@ export default class Game extends React.Component {
     me:null,
     day:0,
     kar:"amrii",
-    dst:null,//For Day state
+    dst:{0:[]},//For Day state
   }
 
 }
@@ -26,9 +26,9 @@ upday=(e)=>{
       .then(res => {
                console.log(res);
                  this.diary();
-                
+                const day=res.data.day
+                 this.setState({dst:this.state.dst.push({day:[]})})
                      })
- 
 
 }
 fight=(e)=>{
@@ -76,7 +76,7 @@ kar=(e)=>{
   
   console.log("tmyk")
 
-   axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/kar/'+e.target.value)
+   axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/kar/'+e.target.id)
       .then(res => {
          console.log(res.data)
            
@@ -88,7 +88,7 @@ kar=(e)=>{
 undi=(e)=>{
   e.preventDefault();
   console.log("tmyk")
-   axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/undi/'+e.target.value)
+   axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/undi/'+e.target.id)
       .then(res => {
                console.log(res);
                 
@@ -96,11 +96,11 @@ undi=(e)=>{
  
 
 }
-di(e){
+di=(e)=>{
   e.preventDefault();
   console.log("tmyk")
 
-   axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/di/'+e.target.value)
+   axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/di/'+e.target.id)
       .then(res => {
                console.log(res);
                 
@@ -108,11 +108,11 @@ di(e){
  
 
 }
-die(e){
+die=(e)=>{
   e.preventDefault();
   console.log("tmyk")
 
-   axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/di/'+e.target.value)
+   axios.get(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/di/'+e.target.id)
       .then(res => {
                console.log(res);
                 
@@ -120,7 +120,7 @@ die(e){
  
 
 }
-trusty(e){
+trusty=(e)=>{
   e.preventDefault();
   console.log("tmyk")
 
@@ -132,11 +132,11 @@ trusty(e){
  
 
 }
-rewind(e){
+rewind=(e)=>{
   e.preventDefault();
   console.log("tmyk")
 
-   axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/rewind/',{day:e.target.value})
+   axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/rewind',{day:e.target.value})
       .then(res => {
                console.log(res);
                 
@@ -144,25 +144,41 @@ rewind(e){
  
 
 }
-disc(e){
+disc=(e)=>{
   e.preventDefault();
   console.log("tmyk")
-
-   axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/disc/',{name:e.target.value})
+  const cahr=e.target.id
+   axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/disc',{Name:e.target.id})
       .then(res => {
-               console.log(res);
-                
+               const day=String(this.state.day.day)
+               const choices= this.props.choi
+               var  dast=this.state.dst
+             
+               var topix = choices[Math.floor(Math.random() * choices.length)];
+               const stat="Discussed with "+cahr+" about "+topix
+               dast[day].push(stat)
+             this.setState({dst:dast})
+            
                      })
  
 
 }
-inf(e){
+inf=(e)=>{
   e.preventDefault();
   console.log("tmyk")
-
-  axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/inf/',{name:e.target.value})
+  console.log(e.target.value)
+  const cahr=e.target.id
+  axios.post(`https://the-butterfly.dantraztrev.repl.co/api/game/`+this.props.name+'/inf',{Name:e.target.id})
       .then(res => {
                console.log(res);
+               const day=this.state.day.day
+               var  dast=this.state.dst
+               const choices= this.props.choi
+               var topix = choices[Math.floor(Math.random() * choices.length)];
+               const stat=" Talked with "+cahr+" about "+topix
+               dast[day].push(stat)
+               this.setState({dst:dast})
+                
                 
                      })
  
@@ -182,9 +198,9 @@ inf(e){
       const karli=this.props.chars.map((ker,i)=>
         {return(  
         <div class="celf">
-          <div class="cellimg"><img src="https://www.zupimages.net/up/19/09/bv2e.jpg" /></div>
-          <div class="cellid" onClick={this.inter} id={ker}>{ker}<div><a href="#"><i class="fas fa-phone" onClick={this.disc}></i>  
-        <i class="fas fa-comment-dots" onClick={this.inf}></i></a></div>
+          <div class="cellimg"><img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-contact-512.png" /></div>
+          <div class="cellid" onClick={this.inter} id={ker}>{ker}<div><a href="#"><i id={ker} class="fas fa-phone" onClick={this.disc}></i>  
+        <i id={ker} class="fas fa-comment-dots" onClick={this.inf}></i></a></div>
         
   
           </div>
@@ -225,7 +241,10 @@ this.setState({action:
       {
         
       }
-      
+      var day=this.state.day.day
+      const crimes=this.state.dst[0]
+     var actions= crimes.map(ker=>{return(<li>{ker}</li>)})
+      console.log(actions)
     return (
       <div className="Game"> 
 
@@ -239,15 +258,8 @@ this.setState({action:
         <h4>Energy {this.state.day.energy}/10</h4>
       </div><div class="irr">
       <ul>
-        <li>Met with Louise</li>
-        <li>Talked to Danny about Rurope</li>
-        <li>Worked for life </li>
-        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+        <li>Day Started </li>
+      {actions}
       </ul></div>
       <div class="notes"><span>notes</span>
         <div class="notes__list">
@@ -311,8 +323,7 @@ this.setState({action:
     <div class="cellcont">
       <div class="celf">
         <div class="cellimg"><img src="https://www.zupimages.net/up/19/09/bv2e.jpg" /></div>
-        <div class="cellid" onClick={this.inter} id="Preno">Prénom Nom<div><a href="#"><i class="fas fa-phone" onClick={this.disc}></i>  
-      <i class="fas fa-comment-dots" onClick={this.inf}></i></a></div>
+        <div class="cellid" onClick={this.inter} id="Preno">Prénom Nom<div></div>
       
 
         </div>
@@ -327,7 +338,7 @@ this.setState({action:
       <div class="cellhead"><i class="fas fa-signal"></i><i class="fas fa-wifi"></i>
         <div style={{float:"right"}}>86%<i class="fas fa-battery-three-quarters"></i></div>
       </div>
-      <div class="cellhour">15:08<span>mardi 26 mars</span></div>
+      <div class="cellhour">16:20<span>21 May 2021</span></div>
     </div>
   </div>
 </div>

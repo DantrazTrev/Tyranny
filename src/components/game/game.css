@@ -66,6 +66,7 @@
         background-size: 16px 16px;
         display: grid;
         padding: 30px 20px 25px;
+        padding-bottom: 100px;
         grid-template-areas: "title expenses picture" "days expenses picture" "days expenses picture" "days goals quote" "notes tracker tracker";
         grid-template-columns: 50% 30% 20%;
         grid-template-rows: 18% auto auto 30% 25%;
@@ -395,9 +396,13 @@
         position: fixed;
         right:5%;
         top:11%;
-        transform: scale(1.1);
+        transition: all 1s;
         margin-left:11px;
+        transform: scale(1.2) rotate(37deg) ;
 
+      }
+      .lgcell:hover{
+          transform: translate(-50px,0px) rotate(0deg);
       }
       .cellback {
         background-image: url(https://i.pinimg.com/originals/15/bc/04/15bc04bfc0f824358e48de5a6dc2238d.jpg);
