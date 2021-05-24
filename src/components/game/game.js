@@ -216,24 +216,6 @@ inf=(e)=>{
     
 
   }
-inter=(e)=>{
-e.preventDefault();
-this.setState({action:
-<div class="contact">
-<img class="conim" src="https://www.zupimages.net/up/19/09/bv2e.jpg"/>
-<h3 class="cotname">Johnathan </h3>
-<span class="conin"> <i class="fas fa-info"></i>Prefers: Toast <br/>  Acceptance:50% </span>
-
-<div class="action">
-
-<div></div>
-
-
-</div>})
-</div>
-
-})}
-  
 
   render() {
     const buttonli={}
@@ -352,8 +334,7 @@ this.setState({action:
       
 
         <div className="Buttonclass">
-         <button onClick={this.di}>Distance</button>
-          <button onClick={this.undi}>Undistance</button>
+         
            <button onClick={this.rewind}>Rewind</button>
     </div>
       </div>

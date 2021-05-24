@@ -77,7 +77,7 @@ form{
 }
 /* Animation */
 .anim-typewriter{
-  animation: typewriter 3s steps(23) 1s 1 normal both,
+  animation: typewriter 1s steps(23) 1s 1 normal both,
              blinkTextCursor 500ms steps(23)  normal;
 }
 @keyframes typewriter{

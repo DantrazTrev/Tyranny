@@ -1,10 +1,5 @@
 
       
-      body {
-        background: rgb(0, 0, 0);
-        font-family: "Gochi Hand","Helvetica";
-        color: #333;
-      }
       
 
   .Buttonclass
@@ -19,8 +14,8 @@
     transform: translate(-50%,-50%);
     display: inline-block;
     padding: 20px 40px;
-    color: #262626;
-    background: rgba(255, 255, 255, 0);
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0);
     border: 1px solid #262626;
     text-transform: uppercase;
     font-size: 13px;
@@ -36,7 +31,7 @@
       }
       
       body {
-        background: #222;
+      
         font-family: "Gochi Hand", sans-serif;
         color: #333;
       }
@@ -44,7 +39,7 @@
       
       .main-content {
         margin: 5em auto;
-      }
+           }
       .notebook {
         max-width: 800px;
         min-width: 550px;
