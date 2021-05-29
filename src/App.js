@@ -10,7 +10,7 @@ export default class App extends React.Component  {
   constructor(props){
     super(props);
     this.state = {
-      start : "start",
+      start : "game",
       name:"",
       char:[],
       choice:[],

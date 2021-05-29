@@ -245,7 +245,7 @@ inf=(e)=>{
       </ul></div>
       <div class="notes"><span>notes</span>
         <div class="notes__list">
-           - Follow-up customer meet email<br/>- Flight BOS-JFK: 2pm on 29 Apr</div>
+           - Complete Le papillion<br/>- Train BOS-JFK: 2pm on 29 Apr</div>
       </div>
       <div class="expenses">
         <h4>Current Choices</h4>
@@ -262,15 +262,15 @@ inf=(e)=>{
           <div class="goals__list"> 
             <div class="goals__item">
               <div class="goals__item__checkbox"> <span>&#10004;</span></div>
-              <div class="goals__item__desc">One Codepen	</div>
+              <div class="goals__item__desc">One Call	</div>
             </div>
             <div class="goals__item">
               <div class="goals__item__checkbox"></div>
-              <div class="goals__item__desc">One Blog Post</div>
+              <div class="goals__item__desc">One Message</div>
             </div>
             <div class="goals__item">
               <div class="goals__item__checkbox"></div>
-              <div class="goals__item__desc">One Illustration</div>
+              <div class="goals__item__desc">Repair the phone</div>
             </div>
           </div>
         </div>
